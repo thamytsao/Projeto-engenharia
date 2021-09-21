@@ -1,0 +1,52 @@
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(45deg,rgb(228, 241, 241),rgb(22, 87, 172));
+}
+
+.tela-login{
+    background-color: rgba(0, 0,0, 0.9);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 80px;
+    border-radius: 10px;
+    color: white;
+}
+
+.entrada{
+    padding: 15px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+}
+
+.botao-login{
+    background-color: dodgerblue;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+}
+
+.botao-login:hover{
+    background-color: deepskyblue;
+    cursor: pointer;
+}
+
+.login-reset{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    position: absolute;
+    left: 33%;
+    text-decoration: none;
+}
+.login-reset:hover{
+    color: rgb(5, 45, 155);
+    text-decoration:underline;
+    line-height: 1.5;
+}
+
+
