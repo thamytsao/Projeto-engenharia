@@ -15,7 +15,7 @@
             <ul id="lista-menu">
                 <li><a href="planejamento.php" id="item">Planejamento</a></li> 
                 <li><a href="cadastro.php" id="item">Cadastro</a></li>
-                <li><a href="consulta.php" id="item">Consulta</a></li>
+                <li><a href="consulta1.php" id="item">Consulta</a></li>
                 <li><a href="estoque.php" id="item">Estoque</a></li>            
             </ul>
         </div> 
