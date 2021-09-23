@@ -20,6 +20,10 @@
         form{
             position: absolute;
         }
+        .btn-menu{
+            position: relative;
+            left:40%;
+        }
     </style>
 
     <?php
@@ -258,6 +262,9 @@
         }else{
             echo'<script>alert("Digite o CPF do responsável que deseja atualizar os dados");</script>';   
         }
+    }elseif(isset($_POST['go-menu'])){
+        header('location: nivel1.php');
+        exit();
     }
     ?>
 </head>
@@ -320,7 +327,9 @@
                     </div>
                     <button type="submit" name="altera-endereco"class="btn-entrada">Atualizar</button>
                     </fieldset>
+                   
                 </fieldset>
+                <button type="submit" name="go-menu" class="btn-menu">Voltar</button>
             </form>
         </div>
 <body>

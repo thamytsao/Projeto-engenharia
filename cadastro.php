@@ -55,6 +55,9 @@
 
         $result3 = mysqli_query($conexao,"INSERT INTO responsavel(CPF,responsavel,idContato,idEndereco,matricula)VALUES('$cpf','$nome','$contato','$endereco','$matricula')");
 
+        }elseif(isset($_POST['go-menu'])){
+            header('location: nivel1.php');
+            exit();
         }
         
     ?>
@@ -70,8 +73,20 @@
     #menu-opcoes:hover{
     color: rgb(5, 45, 155);
     text-decoration:underline;
-    
     }
+    .btn-menu{
+            
+            left:40%;
+            background-image: linear-gradient(45deg,rgb(228, 241, 241),rgb(22, 87, 172));
+            width: 100%;
+            border:none;
+            padding: 15px;
+            color:white;
+            font-size: 15px;
+            border-radius: 10px;
+            cursor:pointer;
+            top:94%;
+        }
     </style>
 </head>
 <body>
@@ -135,9 +150,10 @@
                 <br></br>
                 <input type="submit" name="cadastrar" class="cadastrar">
                 <br></br>
-                <a class="menu-opcoes" id="menu-opcoes" href="nivel1.php">Menu</a>
+                <a href="nivel1.php" id="menu-opcoes">Voltar</a> 
             </fieldset>
         </form>
+        
    </div>
 </body>
 </html>
