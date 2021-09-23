@@ -5,6 +5,7 @@ session_start();
     if( empty($_POST['usuario']) || empty($_POST['senha'])){
         header('location: tela-de-login.php');
         exit();
+        
     }
 //Ira buscar os valores que então como entrada la no form
     $usuario = mysqli_real_escape_string($conexao, $_POST['usuario']);

@@ -53,7 +53,7 @@
         print_r($endereco);
         
 
-        $result3 = mysqli_query($conexao,"INSERT INTO responsavel(CPF,nome,idContato,idEndereco,matricula)VALUES('$cpf','$nome','$contato','$endereco','$matricula')");
+        $result3 = mysqli_query($conexao,"INSERT INTO responsavel(CPF,responsavel,idContato,idEndereco,matricula)VALUES('$cpf','$nome','$contato','$endereco','$matricula')");
 
         }
         
