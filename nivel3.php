@@ -11,6 +11,12 @@
         form{
             position: absolute;
         }
+        table{
+            position: absolute;
+            top:20%;
+            left:25%;
+            
+        }
     </style>
     <?php
         if(isset($_POST['consultar'])){
@@ -33,11 +39,12 @@
                 echo "<th>Semana 3</th>";
                 echo "<th>Semana 4</th>";
                 echo "</tr>";
-
-                $result = mysqli_query($conexao,"select idTurmaT, aluno, nome,dataPl, status, semana1,semana2,semana3,semana4
+        
+                $result = mysqli_query($conexao,"Select idTurmaT, aluno, nome, dataPl, status, semana1, semana2, semana3, semana4 from(select idTurmaT, aluno, nome,dataPl, status, semana1,semana2,semana3,semana4
                 from turma_aluno
                 left join turma on turma_aluno.idTurmaT = turma.idTurma
-                left join aluno on turma_aluno.aluno = aluno.matricula where idTurmaT='$entrada'");
+                left join aluno on turma_aluno.aluno = aluno.matricula) alunoo left join responsavel on alunoo.aluno=responsavel.matricula where CPF='$entrada';");
+        
                 if($result == null){
                     echo'<script>alert(" Registro não encontrado");</script>';
                 }else{
@@ -67,7 +74,7 @@
                     }
                 }
                 echo "</table>";
-            }elseif(empty($_POST['consulta-turma'])){
+            }elseif(empty($_POST['informa-cpf'])){
                 $entrada = $_POST['informa-matricula'];
 
                 echo "<table border=1>";
