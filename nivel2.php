@@ -19,162 +19,162 @@
     </style>
     <?php
         if(isset($_POST['consultar'])){
-        include_once('busca.php');
-        if(empty($_POST['informa-matricula']) && empty($_POST['consulta-turma'])){
-            echo'<script>alert(" Informe a turma e/ou a matrícula do aluno");</script>'; 
-        }else{
-            if(empty($_POST['informa-matricula'])){
-                $entrada = $_POST['consulta-turma'];  
-
-                echo "<table border=1>";
-                echo "<tr>";
-                echo "<th>Turma</th>";
-                echo "<th>Matrícula</th>";
-                echo "<th>Nome</th>";
-                echo "<th>Mês</th>";
-                echo "<th>Status</th>";
-                echo "<th>Semana 1</th>";
-                echo "<th>Semana 2</th>";
-                echo "<th>Semana 3</th>";
-                echo "<th>Semana 4</th>";
-                echo "</tr>";
-
-                $result = mysqli_query($conexao,"select idTurmaT, aluno, nome,dataPl, status, semana1,semana2,semana3,semana4
-                from turma_aluno
-                left join turma on turma_aluno.idTurmaT = turma.idTurma
-                left join aluno on turma_aluno.aluno = aluno.matricula where idTurmaT='$entrada'");
-                if($result == null){
-                    echo'<script>alert(" Registro não encontrado");</script>';
-                }else{
-                    while($registro = mysqli_fetch_array($result)){
-                        $turma = $aluno = $registro['idTurmaT'];
-                        $aluno = $registro['aluno'];
-                        $nome = $registro['nome'];
-                        $mes = $registro['dataPl'];
-                        $status = $registro['status'];
-                        $semana1 = $registro['semana1'];
-                        $semana2 = $registro['semana2'];
-                        $semana3 = $registro['semana3'];
-                        $semana4 = $registro['semana4'];
-                        
-
-                        echo "<tr>";
-                        echo "<td>".$turma."</td>";
-                        echo "<td>".$aluno."</td>";
-                        echo "<td>".$nome."</td>";
-                        echo "<td>".$mes."</td>";
-                        echo "<td>".$status."</td>";
-                        echo "<td>".$semana1."</td>";
-                        echo "<td>".$semana2."</td>";
-                        echo "<td>".$semana3."</td>";
-                        echo "<td>".$semana4."</td>";
-                        echo "</tr>";
-                    }
-                }
-                echo "</table>";
-            }elseif(empty($_POST['consulta-turma'])){
-                $entrada = $_POST['informa-matricula'];
-
-                echo "<table border=1>";
-                echo "<tr>";
-                echo "<th>Turma</th>";
-                echo "<th>Matrícula</th>";
-                echo "<th>Nome</th>";
-                echo "<th>Mês</th>";
-                echo "<th>Status</th>";
-                echo "<th>Semana 1</th>";
-                echo "<th>Semana 2</th>";
-                echo "<th>Semana 3</th>";
-                echo "<th>Semana 4</th>";
-                echo "</tr>";
-        
-                $result = mysqli_query($conexao,"select idTurmaT, aluno, nome,dataPl, status, semana1,semana2,semana3,semana4
-                from turma_aluno
-                left join turma on turma_aluno.idTurmaT = turma.idTurma
-                left join aluno on turma_aluno.aluno = aluno.matricula where aluno='$entrada'");
-        
-                if($result == null){
-                    echo'<script>alert(" Registro não encontrado");</script>';
-                }else{
-                    while($registro = mysqli_fetch_array($result)){
-                        $turma = $aluno = $registro['idTurmaT'];
-                        $aluno = $registro['aluno'];
-                        $nome = $registro['nome'];
-                        $mes = $registro['dataPl'];
-                        $status = $registro['status'];
-                        $semana1 = $registro['semana1'];
-                        $semana2 = $registro['semana2'];
-                        $semana3 = $registro['semana3'];
-                        $semana4 = $registro['semana4'];
-                        
-
-                        echo "<tr>";
-                        echo "<td>".$turma."</td>";
-                        echo "<td>".$aluno."</td>";
-                        echo "<td>".$nome."</td>";
-                        echo "<td>".$mes."</td>";
-                        echo "<td>".$status."</td>";
-                        echo "<td>".$semana1."</td>";
-                        echo "<td>".$semana2."</td>";
-                        echo "<td>".$semana3."</td>";
-                        echo "<td>".$semana4."</td>";
-                        echo "</tr>";
-                    }
-                }
-                echo "</table>";
+            include_once('busca.php');
+            if(empty($_POST['consulta-matricula']) && empty($_POST['consulta-turma'])){
+                echo'<script>alert(" Informe a turma e/ou a matrícula do aluno");</script>'; 
             }else{
-                $entrada = $_POST['informa-matricula'];
+                if(empty($_POST['consulta-matricula'])){
+                    $entrada = $_POST['consulta-turma'];  
 
-                echo "<table border=1>";
-                echo "<tr>";
-                echo "<th>Turma</th>";
-                echo "<th>Matrícula</th>";
-                echo "<th>Nome</th>";
-                echo "<th>Mês</th>";
-                echo "<th>Status</th>";
-                echo "<th>Semana 1</th>";
-                echo "<th>Semana 2</th>";
-                echo "<th>Semana 3</th>";
-                echo "<th>Semana 4</th>";
-                echo "</tr>";
-        
-                $result = mysqli_query($conexao,"select idTurmaT, aluno, nome,dataPl, status, semana1,semana2,semana3,semana4
-                from turma_aluno
-                left join turma on turma_aluno.idTurmaT = turma.idTurma
-                left join aluno on turma_aluno.aluno = aluno.matricula where aluno='$entrada'");
-        
-                if($result == null){
-                    echo'<script>alert(" Registro não encontrado");</script>';
-                }else{
-                    while($registro = mysqli_fetch_array($result)){
-                        $turma = $aluno = $registro['idTurmaT'];
-                        $aluno = $registro['aluno'];
-                        $nome = $registro['nome'];
-                        $mes = $registro['dataPl'];
-                        $status = $registro['status'];
-                        $semana1 = $registro['semana1'];
-                        $semana2 = $registro['semana2'];
-                        $semana3 = $registro['semana3'];
-                        $semana4 = $registro['semana4'];
-                        
+                    echo "<table border=1>";
+                    echo "<tr>";
+                    echo "<th>Turma</th>";
+                    echo "<th>Matrícula</th>";
+                    echo "<th>Nome</th>";
+                    echo "<th>Mês</th>";
+                    echo "<th>Status</th>";
+                    echo "<th>Semana 1</th>";
+                    echo "<th>Semana 2</th>";
+                    echo "<th>Semana 3</th>";
+                    echo "<th>Semana 4</th>";
+                    echo "</tr>";
 
-                        echo "<tr>";
-                        echo "<td>".$turma."</td>";
-                        echo "<td>".$aluno."</td>";
-                        echo "<td>".$nome."</td>";
-                        echo "<td>".$mes."</td>";
-                        echo "<td>".$status."</td>";
-                        echo "<td>".$semana1."</td>";
-                        echo "<td>".$semana2."</td>";
-                        echo "<td>".$semana3."</td>";
-                        echo "<td>".$semana4."</td>";
-                        echo "</tr>";
+                    $result = mysqli_query($conexao,"select idTurmaT, aluno, nome,dataPl, status, semana1,semana2,semana3,semana4
+                    from turma_aluno
+                    left join turma on turma_aluno.idTurmaT = turma.idTurma
+                    left join aluno on turma_aluno.aluno = aluno.matricula where idTurmaT='$entrada'");
+                    if($result == null){
+                        echo'<script>alert(" Registro não encontrado");</script>';
+                    }else{
+                        while($registro = mysqli_fetch_array($result)){
+                            $turma = $aluno = $registro['idTurmaT'];
+                            $aluno = $registro['aluno'];
+                            $nome = $registro['nome'];
+                            $mes = $registro['dataPl'];
+                            $status = $registro['status'];
+                            $semana1 = $registro['semana1'];
+                            $semana2 = $registro['semana2'];
+                            $semana3 = $registro['semana3'];
+                            $semana4 = $registro['semana4'];
+                            
+
+                            echo "<tr>";
+                            echo "<td>".$turma."</td>";
+                            echo "<td>".$aluno."</td>";
+                            echo "<td>".$nome."</td>";
+                            echo "<td>".$mes."</td>";
+                            echo "<td>".$status."</td>";
+                            echo "<td>".$semana1."</td>";
+                            echo "<td>".$semana2."</td>";
+                            echo "<td>".$semana3."</td>";
+                            echo "<td>".$semana4."</td>";
+                            echo "</tr>";
+                        }
                     }
+                    echo "</table>";
+                }elseif(empty($_POST['consulta-turma'])){
+                    $entrada = $_POST['consulta-matricula'];
+
+                    echo "<table border=1>";
+                    echo "<tr>";
+                    echo "<th>Turma</th>";
+                    echo "<th>Matrícula</th>";
+                    echo "<th>Nome</th>";
+                    echo "<th>Mês</th>";
+                    echo "<th>Status</th>";
+                    echo "<th>Semana 1</th>";
+                    echo "<th>Semana 2</th>";
+                    echo "<th>Semana 3</th>";
+                    echo "<th>Semana 4</th>";
+                    echo "</tr>";
+            
+                    $result = mysqli_query($conexao,"select idTurmaT, aluno, nome,dataPl, status, semana1,semana2,semana3,semana4
+                    from turma_aluno
+                    left join turma on turma_aluno.idTurmaT = turma.idTurma
+                    left join aluno on turma_aluno.aluno = aluno.matricula where aluno='$entrada'");
+            
+                    if($result == null){
+                        echo'<script>alert(" Registro não encontrado");</script>';
+                    }else{
+                        while($registro = mysqli_fetch_array($result)){
+                            $turma = $aluno = $registro['idTurmaT'];
+                            $aluno = $registro['aluno'];
+                            $nome = $registro['nome'];
+                            $mes = $registro['dataPl'];
+                            $status = $registro['status'];
+                            $semana1 = $registro['semana1'];
+                            $semana2 = $registro['semana2'];
+                            $semana3 = $registro['semana3'];
+                            $semana4 = $registro['semana4'];
+                            
+
+                            echo "<tr>";
+                            echo "<td>".$turma."</td>";
+                            echo "<td>".$aluno."</td>";
+                            echo "<td>".$nome."</td>";
+                            echo "<td>".$mes."</td>";
+                            echo "<td>".$status."</td>";
+                            echo "<td>".$semana1."</td>";
+                            echo "<td>".$semana2."</td>";
+                            echo "<td>".$semana3."</td>";
+                            echo "<td>".$semana4."</td>";
+                            echo "</tr>";
+                        }
+                    }
+                    echo "</table>";
+                }else{
+                    $entrada = $_POST['consulta-matricula'];
+
+                    echo "<table border=1>";
+                    echo "<tr>";
+                    echo "<th>Turma</th>";
+                    echo "<th>Matrícula</th>";
+                    echo "<th>Nome</th>";
+                    echo "<th>Mês</th>";
+                    echo "<th>Status</th>";
+                    echo "<th>Semana 1</th>";
+                    echo "<th>Semana 2</th>";
+                    echo "<th>Semana 3</th>";
+                    echo "<th>Semana 4</th>";
+                    echo "</tr>";
+            
+                    $result = mysqli_query($conexao,"select idTurmaT, aluno, nome,dataPl, status, semana1,semana2,semana3,semana4
+                    from turma_aluno
+                    left join turma on turma_aluno.idTurmaT = turma.idTurma
+                    left join aluno on turma_aluno.aluno = aluno.matricula where aluno='$entrada'");
+            
+                    if($result == null){
+                        echo'<script>alert(" Registro não encontrado");</script>';
+                    }else{
+                        while($registro = mysqli_fetch_array($result)){
+                            $turma = $aluno = $registro['idTurmaT'];
+                            $aluno = $registro['aluno'];
+                            $nome = $registro['nome'];
+                            $mes = $registro['dataPl'];
+                            $status = $registro['status'];
+                            $semana1 = $registro['semana1'];
+                            $semana2 = $registro['semana2'];
+                            $semana3 = $registro['semana3'];
+                            $semana4 = $registro['semana4'];
+                            
+
+                            echo "<tr>";
+                            echo "<td>".$turma."</td>";
+                            echo "<td>".$aluno."</td>";
+                            echo "<td>".$nome."</td>";
+                            echo "<td>".$mes."</td>";
+                            echo "<td>".$status."</td>";
+                            echo "<td>".$semana1."</td>";
+                            echo "<td>".$semana2."</td>";
+                            echo "<td>".$semana3."</td>";
+                            echo "<td>".$semana4."</td>";
+                            echo "</tr>";
+                        }
+                    }
+                    echo "</table>";
                 }
-                echo "</table>";
-            }
-    }
-    }else{
+        }
+    }elseif(isset($_POST['altera-aluno'])){
         include_once('busca.php');
 
         if(empty($_POST['informa-matricula'])){
@@ -209,8 +209,8 @@
                     
                     </div> 
                     <div>
-                        <label for="informa-matricula">Informe a Matrícula:</label>
-                        <input type="text" name="informa-matricula" class="entrada-user"> 
+                        <label for="consulta-matricula">Informe a Matrícula:</label>
+                        <input type="text" name="consulta-matricula" class="entrada-user"> 
                     </div> 
                     <button type="submit" name="consultar" class="btn-entrada">Consultar</button>
                 </fieldset>
