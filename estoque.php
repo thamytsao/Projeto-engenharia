@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="">
-    <title>Tela de Consulta</title>
+    <title>Tela de Estoque</title>
     <style>
         body{
             font-family: Arial, Helvetica, sans-serif;
@@ -19,6 +19,10 @@
         }
         form{
             position: absolute;
+        }
+        .btn-menu{
+            position: relative;
+            left:40%;
         }
     </style>
 
@@ -135,6 +139,9 @@
 
             $result2 = mysqli_query($conexao,"INSERT INTO estoque(codigo,descricao,quantidade)VALUES('$entrada1','$entrada2','$entrada3')");
         }
+    }elseif(isset($_POST['go-menu'])){
+        header('location: nivel1.php');
+        exit();
     }
     
     ?>
@@ -191,6 +198,7 @@
                     <button type="submit" name="adiciona-produto"class="btn-entrada">Adicionar</button>
                     </fieldset>
                 </fieldset>
+                <button type="submit" name="go-menu" class="btn-menu">Voltar</button>
             </form>
         </div>
 <body>
