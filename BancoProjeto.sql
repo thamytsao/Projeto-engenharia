@@ -167,4 +167,13 @@ left join aluno on turma_aluno.aluno = aluno.matricula) alunoo left join respons
 Select idTurmaT, aluno, nome, dataPl, status, semana1, semana2, semana3, semana4 from(select idTurmaT, aluno, nome,dataPl, status, semana1,semana2,semana3,semana4
 from turma_aluno
 left join turma on turma_aluno.idTurmaT = turma.idTurma
-left join aluno on turma_aluno.aluno = aluno.matricula) alunoo left join responsavel on alunoo.aluno=responsavel.matricula where CPF='12345678901';
+left join aluno on turma_aluno.aluno = aluno.matricula) alunoo left join responsavel on alunoo.aluno=responsavel.matricula where CPF='123456789';
+
+
+select idTurma,dataPl,semana1,semana2,semana3,semana4
+                    from turma where idTurma='3	';
+
+select * from turma ;
+
+select idTurma,dataPl,semana1,semana2,semana3,semana4
+                from turma where idTurma='1';
